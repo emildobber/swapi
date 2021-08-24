@@ -17,7 +17,7 @@ class CreateSpeciesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('classification');
-            $table->foreignIdFor(App\Models\Planet::class);
+            $table->foreignIdFor(App\Models\Planet::class)->nullable();
         });
     }
 

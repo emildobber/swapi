@@ -3,6 +3,7 @@
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\PeopleController;
 use App\Http\Controllers\PlanetsController;
+use App\Http\Controllers\SpeciesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,3 +25,4 @@ Route::get('/filldatabase', [Controller::class, 'fillDatabase']);
 
 Route::resource('people', PeopleController::class);
 Route::resource('planets', PlanetsController::class);
+Route::resource('species', SpeciesController::class);

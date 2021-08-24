@@ -44,11 +44,11 @@ class Controller extends BaseController
         Species::truncate();
         $species = Http::get('https://swapi.dev/api/species')->object()->results;
         foreach($species as $specie){
-            $planet_id = filter_var($person->homeworld, FILTER_SANITIZE_NUMBER_INT);
+            $planet_id = filter_var($specie->homeworld, FILTER_SANITIZE_NUMBER_INT);
             Species::create([
                 'name' => $specie->name,
                 'classification' => $specie->classification,
-                'planet_id' => $planet_id,
+                'planet_id' => $planet_id !== "" ? $planet_id : null
             ]);
         }
         return redirect('people');
