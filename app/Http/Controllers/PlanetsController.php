@@ -8,11 +8,9 @@ use App\Models\Species;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response as ResponseAlias;
-use Illuminate\Support\Facades\Http;
 use Illuminate\View\View;
 
-class PeopleController extends Controller
+class PlanetsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,8 +19,9 @@ class PeopleController extends Controller
      */
     public function index()
     {
-        return view('people.index', [
-            'people' => Person::with(['planet', 'species'])->get()
+        return view('planets.index', [
+            'planets' => Planet::all(),
+            'residents' => Person::all()
         ]);
     }
 
@@ -34,12 +33,13 @@ class PeopleController extends Controller
      */
     public function show($id)
     {
-        $person = Person::findorfail($id);
+        $planet = Planet::findorfail($id);
+        $residents = Person::where('planet_id', $planet->id)->get();
 
-        return view('people.show', [
-            'person' => $person,
-            'planet' => Planet::find($person->planet_id),
-            'species' => Species::find($person->species_id)
+
+        return view('planets.show', [
+            'planet' => $planet,
+            'residents' => $residents
         ]);
     }
 }

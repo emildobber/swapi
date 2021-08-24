@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\PeopleController;
+use App\Http\Controllers\PlanetsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,5 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('people', PeopleController::class);
 Route::get('/filldatabase', [Controller::class, 'fillDatabase']);
+
+Route::resource('people', PeopleController::class);
+Route::resource('planets', PlanetsController::class);

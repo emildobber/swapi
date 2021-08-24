@@ -33,12 +33,11 @@ class Controller extends BaseController
 
         Planet::truncate();
         $planets = Http::get('https://swapi.dev/api/planets')->object()->results;
-        foreach($planets as $planet){
+        foreach($planets as $key=>$planet){
             Planet::create([
                 'name' => $planet->name,
                 'diameter' => $planet->diameter,
                 'population' => $planet->population,
-//                'residents' => $planet->gender,
             ]);
         }
 

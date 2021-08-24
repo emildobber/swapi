@@ -9,11 +9,11 @@
     </tr>
     @foreach($people as $person)
         <tr>
-            <th><a href="/people/{{ $person->id }}">{{ $person->name }}</th>
+            <th><a href="/people/{{ $person->id }}">{{ $person->name }}</a></th>
             <th>{{ $person->height}}</th>
             <th>{{ $person->birth_year }}</th>
             <th>{{ $person->gender }}</th>
-            <th>{{ $person->planet->name ?? ""}}</th>
+            <th><a href="/planets/{{ $person->planet->id ?? "" }}">{{ $person->planet->name ?? ""}}</a></th>
             <th>{{ $person->species->name ?? ""}}</th>
         </tr>
     @endforeach
