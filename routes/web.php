@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\PeopleController;
+use App\Http\Controllers\PlanetsController;
+use App\Http\Controllers\SpeciesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,5 +24,11 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::get('/filldatabase', [Controller::class, 'fillDatabase']);
+
+Route::resource('people', PeopleController::class);
+Route::resource('planets', PlanetsController::class);
+Route::resource('species', SpeciesController::class);
 
 require __DIR__.'/auth.php';

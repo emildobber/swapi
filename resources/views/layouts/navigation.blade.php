@@ -12,8 +12,14 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                    <x-nav-link href="/people" :active="request()->routeIs('people')">
+                        {{ __('People') }}
+                    </x-nav-link>
+                    <x-nav-link href="/planets" :active="request()->routeIs('planets')">
+                        {{ __('Planets') }}
+                    </x-nav-link>
+                    <x-nav-link href="/species" :active="request()->routeIs('species')">
+                        {{ __('Species') }}
                     </x-nav-link>
                 </div>
             </div>
