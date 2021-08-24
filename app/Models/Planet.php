@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Species extends Model
+class Planet extends Model
 {
     use HasFactory;
 
@@ -13,12 +13,8 @@ class Species extends Model
 
     protected $fillable = [
         'name',
-        'classification',
-        'planet_id',
+        'diameter',
+        'population',
+        'residents',
     ];
-
-    public function planet()
-    {
-        return $this->belongsTo(Planet::class);
-    }
 }
